@@ -1,0 +1,24 @@
+---
+- name: install apache2; change the default webpage
+  hosts: all
+  tasks:
+   - name: install apache2
+     apt:
+      name: apache2
+      state: present
+      update_cache: yes
+     notify: check url response
+   - name: change the default webpage of apache2
+     copy:
+      content: "Hello there again"
+      dest: /var/www/html/index.html
+     notify: restart apache2
+  handlers:
+   - name: restart apache2
+     service:
+      name: apache2
+      state: restarted
+   - name: check url response
+     uri: 
+      url: 172.31.88.212
+      status_code: 200

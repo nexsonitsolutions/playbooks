@@ -1,0 +1,13 @@
+---
+- name: play scope variables; implementing when conditions
+  hosts: all
+  vars:
+   - var1: 100
+  tasks:
+   - name: install tomcat
+     apt:
+      name: tomcat9
+      state: present
+     when: 
+      var1==100
+...

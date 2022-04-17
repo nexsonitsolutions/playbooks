@@ -1,0 +1,10 @@
+---
+- name: install tree
+  hosts: all
+  tasks:   
+   - name: install tree 
+     include: "{{item}}"
+     with_items:
+      - tree.yml
+      - git.yml
+... 

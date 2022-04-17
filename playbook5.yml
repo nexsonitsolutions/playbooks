@@ -1,0 +1,33 @@
+---
+- name: install git, tree, maven, elinks, default-jdk, tomcat9, tomcat9-admin
+  hosts: all
+  tasks:
+   - name: install git
+     apt: 
+      name: git
+      state: present
+   - name: install tree
+     apt: 
+      name: tree
+      state: present
+   - name: install maven
+     apt: 
+      name: maven
+      state: present
+   - name: install elinks
+     apt: 
+      name: elinks
+      state: present
+   - name: install default-jdk
+     apt: 
+      name: default-jdk
+      state: present
+   - name: install tomcat9
+     apt: 
+      name: tomcat9
+      state: present
+   - name: install tomcat9-admin
+     apt: 
+      name: tomcat9-admin
+      state: present
+...

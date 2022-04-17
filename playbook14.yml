@@ -1,0 +1,22 @@
+---
+- name: install packages
+  hosts: all
+  tasks: 
+   - name: install git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+     tags:
+      - install_git
+   - name: install tree
+     apt:
+      name: tree
+      state: present
+      update_cache: yes
+   - name: create a user
+     user: 
+      name: rithvika
+      password: 123456
+     tags: 
+      - create_user

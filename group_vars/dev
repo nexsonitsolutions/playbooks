@@ -1,0 +1,6 @@
+pkg1: tree
+install: present
+cache: yes
+pkg2: elinks
+install2: absent
+cache2: no

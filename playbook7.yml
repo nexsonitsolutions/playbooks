@@ -1,0 +1,9 @@
+---
+- name: install git, tree, maven, elinks, default-jdk, tomcat9, tomcat9-admin
+  hosts: all
+  tasks:
+   - name: install packages
+     apt:
+      name: ["git", "tree", "maven", "elinks", "default-jdk","tomcat9", "tomcat9-admin"]
+      state: present
+...

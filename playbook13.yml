@@ -1,0 +1,25 @@
+---
+- name: error handling in ansible
+  hosts: all
+  tasks:
+   - block: 
+      - name: install tomcat8
+        apt:
+         name: tomcat8
+         state: present
+         update_cache: yes
+     rescue:
+      - name: install tomcat9
+        apt:
+         name: tomcat9
+         state: present
+         update_cache: yes
+     always:
+      - name: check the url response of tomcat
+        uri:
+         url: "{{item}}"
+         status_cde: 200
+        with_items:
+         - http://3.87.211.88:8080
+         - http://3.83.12.19:8080
+         - http://34.238.249.189:8080

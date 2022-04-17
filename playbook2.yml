@@ -1,0 +1,10 @@
+---
+- name: uninstall tree package
+  hosts: all
+  become: yes
+  tasks:
+   - name: uninstall tree
+     apt:
+      name: tree
+      state: absent
+...

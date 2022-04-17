@@ -1,0 +1,18 @@
+---
+- name: install  git, tree, maven, uninstall  elinks, default-jdk, install tomcat9, tomcat9-admin
+  hosts: all
+  become: true
+  tasks:
+   - name: install and uninstall packages
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+     with_items:
+      - {a: git, b: present}
+      - {a: tree, b: present}
+      - {a: maven, b: present}
+      - {a: elinks, b: absent}
+      - {a: default-jdk, b: absent}
+      - {a: tomcat9, b: present}
+      - {a: tomcat9-admin, b: present}
+...

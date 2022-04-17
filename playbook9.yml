@@ -1,0 +1,15 @@
+---
+- name: install and uninstall packages
+  hosts: dev
+  tasks:
+   - name: install a package
+     apt:
+      name: "{{pkg1}}"
+      state: "{{install}}"
+      update_cache: "{{cache}}"
+   - name: uninstall a package
+     apt:
+      name: "{{pkg2}}"
+      state: "{{install2}}"
+      update_cache: "{{cache2}}"
+...
